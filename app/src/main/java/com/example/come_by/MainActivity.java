@@ -2,6 +2,7 @@ package com.example.come_by;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -10,7 +11,9 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+
+
+public class MainActivity extends FragmentActivity {
 
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
@@ -26,14 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        frag1 = new Frag1();
-        frag2 = new Frag2();
-        frag3 = new Frag3();
-        frag4 = new Frag4();
-        frag5 = new Frag5();
-        setFrag(0);
-
-        bottomNavigationView = bottomNavigationView.findViewById(R.id.bottomNavi);
+        bottomNavigationView = findViewById(R.id.bottomNavi);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -59,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        frag1 = new Frag1();
+        frag2 = new Frag2();
+        frag3 = new Frag3();
+        frag4 = new Frag4();
+        frag5 = new Frag5();
+        setFrag(0);
 
     }
 
@@ -68,27 +70,22 @@ public class MainActivity extends AppCompatActivity {
         switch (n) {
             case 0:
                 ft.replace(R.id.main_frame, frag1);
-
                 ft.commit();
                 break;
             case 1:
                 ft.replace(R.id.main_frame, frag2);
-
                 ft.commit();
                 break;
             case 2:
                 ft.replace(R.id.main_frame, frag3);
-
                 ft.commit();
                 break;
             case 3:
                 ft.replace(R.id.main_frame, frag4);
-
                 ft.commit();
                 break;
             case 4:
                 ft.replace(R.id.main_frame, frag5);
-
                 ft.commit();
                 break;
         }
