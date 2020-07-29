@@ -1,14 +1,19 @@
 package com.example.come_by;
 
-import androidx.appcompat.app.AppCompatActivity;
+
+
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private BottomNavigationView bottomNavigationView;
     private FragmentManager fm;
@@ -24,12 +29,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationView = findViewById(R.id.bottomNavi);
+        bottomNavigationView = bottomNavigationView.findViewById(R.id.bottomNavi);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.bottom_home:
+                        setFrag(0);
+                        break;
+                    case R.id.bottom_saved:
+                        setFrag(1);
+                        break;
+                    case R.id.bottom_like:
+                        setFrag(2);
+                        break;
+                    case R.id.bottom_map:
+                        setFrag(3);
+                        break;
+                    case R.id.bottom_profile:
+                        setFrag(4);
+                        break;
+
+                }
+                return true;
+            }
+        });
+
         frag1 = new Frag1();
         frag2 = new Frag2();
         frag3 = new Frag3();
         frag4 = new Frag4();
         frag5 = new Frag5();
+        setFrag(0);
 
     }
 
@@ -39,6 +70,23 @@ public class MainActivity extends AppCompatActivity {
         switch (n) {
             case 0:
                 ft.replace(R.id.main_frame, frag1);
+                ft.addToBackStack(null);
+                ft.commit();
+            case 1:
+                ft.replace(R.id.main_frame, frag2);
+                ft.addToBackStack(null);
+                ft.commit();
+            case 2:
+                ft.replace(R.id.main_frame, frag3);
+                ft.addToBackStack(null);
+                ft.commit();
+            case 3:
+                ft.replace(R.id.main_frame, frag4);
+                ft.addToBackStack(null);
+                ft.commit();
+            case 4:
+                ft.replace(R.id.main_frame, frag5);
+                ft.addToBackStack(null);
                 ft.commit();
         }
     }
