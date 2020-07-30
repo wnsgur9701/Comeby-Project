@@ -23,7 +23,7 @@ public class MainActivity extends FragmentActivity {
     private Frag3 frag3;
     private Frag4 frag4;
     private Frag5 frag5;
-    private Frag6 frag6;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
