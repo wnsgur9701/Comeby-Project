@@ -13,6 +13,8 @@ import androidx.viewpager.widget.ViewPager;
 public class Frag1 extends Fragment {
 
     private View view;
+    private ViewPager viewPager;
+
 
     @Nullable
     @Override
@@ -20,7 +22,7 @@ public class Frag1 extends Fragment {
 
         view = inflater.inflate(R.layout.frag1, container, false);
 
-        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         viewPager.setAdapter(new ImageAdapter(getActivity()));
 
 
