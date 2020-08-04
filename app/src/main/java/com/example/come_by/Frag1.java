@@ -20,7 +20,7 @@ public class Frag1 extends Fragment {
 
         view = inflater.inflate(R.layout.frag1, container, false);
 
-        ViewPager viewPager = (ViewPager) getView().findViewById(R.id.viewPager);
+        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         viewPager.setAdapter(new ImageAdapter(getActivity()));
 
 
