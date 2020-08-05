@@ -5,6 +5,10 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -18,10 +22,14 @@ public class Frag1 extends Fragment {
 
     private View view;
     private ViewPager viewPager;
+
     int currentPage = 0;
     Timer timer;
     final long DELAY_MS = 500; //처음 대기 시간
     final long PERIOD_MS = 3000; // 반복 시간, 즉 몇 초 마다 count+1이 되는지
+
+
+
 
     //onCreate가 실행된 이후 onCreateView가 실행된다.
     @Nullable
@@ -57,8 +65,11 @@ public class Frag1 extends Fragment {
         //runnable 객체를 보낼 때는 handler.post를 이용한다.
 
 
+
+
         return view;
 
     }
+
 
 }
